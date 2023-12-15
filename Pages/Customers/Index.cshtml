@@ -1,0 +1,37 @@
+﻿@page
+@model Cutomers_Registration_Crud_App.Pages.Customers.IndexModel
+@{
+}
+
+<br>
+<h2>Customers List</h2>
+<a class="btn btn-primary btn-sm" href="/Customers/Create">New Customer</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>CustomerID</th>
+			<th>Name</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.listCustomers)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.name</td>
+				<td>@item.address</td>
+				<td>@item.city</td>
+				<td>@item.state</td>
+				<td>@item.zip</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Customers/Edit?id=@item.id">Edit</a>
+					<a class="btn btn-primary btn-sm" href="/Customers/Delete?id=@item.id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
